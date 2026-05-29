@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOHOUNME Miracle Melvyn — Developer & Architect of Digital Ecosystems</title>
+<title>Miracle LOHOUNME — Developer & Architect of Digital Ecosystems</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Space+Mono:wght@400;700&family=Crimson+Pro:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
@@ -251,7 +251,7 @@
   }
 
   .hero-name .word-miracle { color: var(--white); }
-  .hero-name .word-melvyn {
+  .hero-name .word-lohounme {
     color: transparent;
     -webkit-text-stroke: 1px var(--gold);
     font-style: italic;
@@ -866,6 +866,21 @@
 
   .project-card:hover .project-card-link { opacity: 1; transform: translateY(0); color: var(--cyan); }
 
+  .project-card-desc {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--white-dim);
+    line-height: 1.5;
+    position: relative;
+    margin-bottom: 10px;
+    display: none;
+  }
+
+  .project-card:hover .project-card-desc { display: block; }
+
+  /* projects grid — 3 cols desktop, 2 tablet, 1 mobile */
+  .project-card { aspect-ratio: unset; min-height: 200px; }
+
   /* Color accents per card */
   .project-card.accent-cyan .project-card-emoji { filter: drop-shadow(0 0 20px rgba(0,245,255,0.5)); }
   .project-card.accent-terra .project-card-emoji { filter: drop-shadow(0 0 20px rgba(193,68,14,0.5)); }
@@ -1254,6 +1269,315 @@
     text-transform: uppercase;
     color: var(--white-dim);
   }
+
+  /* ========== NEW PROJECT CARDS ========== */
+
+  /* Featured */
+  .proj-featured {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    min-height: 340px;
+    border: 1px solid rgba(255,215,0,0.12);
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.4s, box-shadow 0.4s;
+  }
+  .proj-featured:hover {
+    border-color: rgba(255,215,0,0.35);
+    box-shadow: 0 0 60px rgba(255,215,0,0.06);
+  }
+  .proj-featured--reverse { grid-template-columns: 1.4fr 1fr; }
+  .proj-featured--reverse .proj-featured-visual { order: -1; }
+
+  .proj-featured-badge {
+    position: absolute;
+    top: 20px; left: 20px;
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--black);
+    padding: 5px 14px;
+    z-index: 3;
+  }
+
+  .proj-featured-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+    position: relative;
+    overflow: hidden;
+  }
+  .proj-featured-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    filter: blur(0);
+    transition: filter 0.5s;
+  }
+  .proj-featured:hover .proj-featured-visual::after { filter: blur(1px); }
+
+  .proj-featured-logo {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 3rem;
+    color: var(--gold);
+    position: relative; z-index: 1;
+    text-shadow: 0 0 40px rgba(255,215,0,0.5);
+  }
+  .proj-featured-sub {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    margin-top: 10px;
+    position: relative; z-index: 1;
+  }
+  .proj-featured-tag {
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.25em;
+    color: rgba(255,215,0,0.5);
+    margin-top: 8px;
+    position: relative; z-index: 1;
+  }
+
+  .proj-featured-body {
+    padding: 56px 48px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(6,17,46,0.6);
+  }
+
+  .proj-cat-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .proj-featured-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+  .proj-featured-desc {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--white-dim);
+    margin-bottom: 24px;
+  }
+  .proj-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .proj-tag {
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--white-dim);
+  }
+  .proj-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gold);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: gap 0.3s, opacity 0.3s;
+  }
+  .proj-link:hover { gap: 18px; opacity: 0.8; }
+
+  /* Grid title divider */
+  .proj-grid-title {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 72px 0 40px;
+  }
+  .proj-grid-title span {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    white-space: nowrap;
+  }
+  .proj-grid-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255,215,0,0.2), transparent);
+  }
+
+  /* Cards grid */
+  .proj-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .proj-card {
+    position: relative;
+    background: var(--navy);
+    border: 1px solid rgba(255,255,255,0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: none;
+    transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .proj-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.4s, box-shadow 0.4s;
+  }
+  .proj-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    border-color: rgba(var(--glow-rgb, 255,215,0), 0.3);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.04);
+  }
+
+  .proj-card-glow {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--glow, var(--gold));
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+  .proj-card:hover .proj-card-glow { opacity: 1; }
+
+  .proj-card-top {
+    padding: 28px 28px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .proj-card-emoji {
+    font-size: 2.4rem;
+    line-height: 1;
+    filter: grayscale(0.3);
+    transition: filter 0.3s, transform 0.3s;
+  }
+  .proj-card:hover .proj-card-emoji {
+    filter: grayscale(0);
+    transform: scale(1.15) rotate(-5deg);
+  }
+
+  .proj-card-status {
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: rgba(0,255,128,0.1);
+    color: #00FF80;
+    border: 1px solid rgba(0,255,128,0.25);
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+  .proj-card-status--wip {
+    background: rgba(255,165,0,0.1);
+    color: #FFA500;
+    border-color: rgba(255,165,0,0.25);
+  }
+
+  .proj-card-body {
+    padding: 20px 28px 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .proj-card-type {
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    opacity: 0.7;
+  }
+  .proj-card-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .proj-card-desc {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--white-dim);
+    flex: 1;
+  }
+  .proj-card-stack {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .proj-card-stack span {
+    font-family: var(--font-mono);
+    font-size: 0.45rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: var(--white-dim);
+  }
+  .proj-card-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 28px 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--glow, var(--gold));
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.3s, transform 0.3s, gap 0.3s;
+  }
+  .proj-card:hover .proj-card-link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .proj-card-link:hover { gap: 14px; }
+
+  /* Responsive projects */
+  @media (max-width: 1100px) { .proj-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 700px) {
+    .proj-grid { grid-template-columns: 1fr; gap: 14px; }
+    .proj-featured { grid-template-columns: 1fr; }
+    .proj-featured--reverse .proj-featured-visual { order: 0; }
+    .proj-featured-visual { min-height: 200px; }
+    .proj-featured-body { padding: 32px 24px; }
+  }
+
 </style>
 </head>
 <body>
@@ -1277,7 +1601,7 @@
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="#hero" class="nav-logo">M<span>.</span>MELVYN <span>// BJ</span></a>
+  <a href="#hero" class="nav-logo">M<span>.</span>LOHOUNME <span>// BJ</span></a>
   <div class="nav-links">
     <a href="#about">Profil</a>
     <a href="#skills">Skills</a>
@@ -1302,7 +1626,7 @@
     <h1 class="hero-name" id="hero-name">
       <span class="word-miracle" id="word1"></span>
       <br>
-      <span class="word-melvyn" id="word2"></span>
+      <span class="word-lohounme" id="word2"></span>
     </h1>
     <p class="hero-subtitle" id="hero-subtitle">
       Full-Stack Developer &nbsp;·&nbsp; Entrepreneur &nbsp;·&nbsp; Architecte d'Écosystèmes Numériques
@@ -1352,11 +1676,11 @@
     </p>
     <div class="about-stats">
       <div class="stat-item">
-        <div class="stat-number">7+</div>
+        <div class="stat-number">13+</div>
         <div class="stat-label">Projets livrés</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">19</div>
+        <div class="stat-number">17</div>
         <div class="stat-label">Ans · Cotonou</div>
       </div>
       <div class="stat-item">
@@ -1381,7 +1705,7 @@
         <div class="about-photo-ring"></div>
         <img 
           src="https://miracle-do.github.io/mon-site/profil.jpg" 
-          alt="LOHOUNME Miracle Melvyn" 
+          alt="Miracle LOHOUNME" 
           class="about-photo"
           onerror="this.style.display='none';document.getElementById('photo-fallback').style.display='flex'"
         />
@@ -1482,115 +1806,320 @@
 <!-- PROJECTS -->
 <!-- ============================================================ -->
 <section id="projects">
+
+  <!-- Header -->
   <div class="projects-header reveal">
     <div>
       <div class="section-label">Réalisations</div>
       <h2 class="projects-headline">Ce que j'ai <em style="color:var(--gold);font-style:italic">forgé</em></h2>
     </div>
     <div class="filter-tabs">
-      <button class="filter-tab active">Tout</button>
-      <button class="filter-tab">Créatif</button>
-      <button class="filter-tab">Plateforme</button>
-      <button class="filter-tab">Business</button>
+      <button class="filter-tab active" data-filter="all">Tout</button>
+      <button class="filter-tab" data-filter="creatif">Créatif</button>
+      <button class="filter-tab" data-filter="plateforme">Plateforme</button>
+      <button class="filter-tab" data-filter="business">Business</button>
+      <button class="filter-tab" data-filter="saas">SaaS / IA</button>
     </div>
   </div>
 
-  <!-- FEATURED -->
-  <div class="featured-project reveal tilt-card">
-    <div class="featured-badge">✦ Projet Phare</div>
-    <div class="featured-visual">
-      <div class="featured-visual-content">
-        <span class="featured-visual-emoji">🌌</span>
-        <div style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.3em;color:var(--cyan)">INTERACTIVE · CREATIVE</div>
-      </div>
+  <!-- ★ FEATURED : MIRACLE DIGITALE -->
+  <div class="proj-featured reveal" data-cat="business">
+    <div class="proj-featured-badge">★ Mon Agence · Projet Phare</div>
+    <div class="proj-featured-visual" style="background:radial-gradient(ellipse at 60% 40%,rgba(45,27,105,0.7),rgba(3,8,24,0.95));">
+      <div class="proj-featured-logo">MD</div>
+      <div class="proj-featured-sub">MIRACLE DIGITALE</div>
+      <div class="proj-featured-tag">AGENCE · DIGITAL · BÉNIN</div>
     </div>
-    <div class="featured-info">
-      <div class="featured-category">✦ Expérience Interactive</div>
-      <h3 class="featured-title">Constellation d'Amour</h3>
-      <p class="featured-desc">Une expérience web poétique et technique où les étoiles deviennent un langage d'amour. Manipulation du canvas, animations de particules, interactions pures JavaScript. Preuve que le code peut être de la poésie.</p>
-      <div class="project-tags">
-        <span class="project-tag">HTML5 Canvas</span>
-        <span class="project-tag">JavaScript ES6</span>
-        <span class="project-tag">Particles</span>
-        <span class="project-tag">CSS Animations</span>
+    <div class="proj-featured-body">
+      <span class="proj-cat-label" style="color:var(--gold)">✦ Agence Digitale · Fondateur</span>
+      <h3 class="proj-featured-title">Miracle Digitale</h3>
+      <p class="proj-featured-desc">Mon agence de présence digitale pour commerçants et PME béninoises. Logos, pages Facebook, gestion réseaux sociaux, sites web. Tagline : <em>"Votre commerce, visible partout."</em> — Visible en 72h chrono, résultats garantis.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Agence Digitale</span>
+        <span class="proj-tag">HTML · CSS · JS</span>
+        <span class="proj-tag">Branding</span>
+        <span class="proj-tag">Bénin 🇧🇯</span>
       </div>
-      <a href="https://miraclelohw.github.io/Constellation-/" target="_blank" class="project-link">
-        Voir le projet
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <a href="https://miracle-do.github.io/Miracle-Digit" target="_blank" class="proj-link">
+        Visiter l'agence <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       </a>
     </div>
   </div>
 
-  <!-- GRID -->
-  <div class="projects-grid reveal">
-
-    <div class="project-card accent-cyan tilt-card">
-      <div class="project-card-emoji">🔐</div>
-      <div class="project-card-inner">
-        <div class="project-card-type">Plateforme · Éducation</div>
-        <div class="project-card-title">LearnHacking</div>
-        <a href="https://miracle-do.github.io/LearnHacking" target="_blank" class="project-card-link">
-          Visiter →
-        </a>
+  <!-- ★ FEATURED : LOGEZY -->
+  <div class="proj-featured proj-featured--reverse reveal" data-cat="saas">
+    <div class="proj-featured-badge" style="background:var(--cyan);color:var(--black)">🚧 En développement · SaaS Immobilier</div>
+    <div class="proj-featured-visual" style="background:radial-gradient(ellipse at 40% 60%,rgba(0,100,60,0.5),rgba(3,8,24,0.95));">
+      <div class="proj-featured-logo" style="color:var(--cyan);font-size:2rem">🏠</div>
+      <div class="proj-featured-sub" style="color:var(--cyan)">LOGEZY</div>
+      <div class="proj-featured-tag" style="color:rgba(0,245,255,0.7)">IMMOBILIER · BÉNIN · VERCEL</div>
+    </div>
+    <div class="proj-featured-body">
+      <span class="proj-cat-label" style="color:var(--cyan)">✦ Plateforme SaaS · En cours</span>
+      <h3 class="proj-featured-title" style="color:var(--cyan)">Logezy Immobilier</h3>
+      <p class="proj-featured-desc">Plateforme immobilière béninoise connectant agents et clients pour la vente et la location. Interface moderne, recherche avancée, fiches détaillées. Mon projet SaaS le plus ambitieux à ce jour — en cours de développement actif.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">SaaS</span>
+        <span class="proj-tag">Immobilier</span>
+        <span class="proj-tag">React / Vercel</span>
+        <span class="proj-tag">Bénin 🇧🇯</span>
       </div>
+      <a href="https://logezy-frontend.vercel.app" target="_blank" class="proj-link" style="color:var(--cyan)">
+        Voir la plateforme <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- ★ FEATURED : CONSTELLATION -->
+  <div class="proj-featured reveal" data-cat="creatif">
+    <div class="proj-featured-badge" style="background:var(--terra)">✦ Expérience Créative · Dont je suis fier</div>
+    <div class="proj-featured-visual" style="background:radial-gradient(ellipse at 50% 50%,rgba(100,10,40,0.6),rgba(3,8,24,0.95));">
+      <div class="proj-featured-logo" style="font-size:3.5rem;filter:drop-shadow(0 0 30px rgba(193,68,14,0.9))">🌌</div>
+      <div class="proj-featured-tag" style="color:rgba(193,68,14,0.9);margin-top:12px">INTERACTIVE · POETIC · CANVAS</div>
+    </div>
+    <div class="proj-featured-body">
+      <span class="proj-cat-label" style="color:var(--terra-light)">✦ Expérience Interactive</span>
+      <h3 class="proj-featured-title">Constellation d'Amour</h3>
+      <p class="proj-featured-desc">Une expérience web poétique : les étoiles deviennent un langage d'amour. Canvas HTML5, particules animées, interactions JavaScript pur. La preuve que le code peut être de la poésie — et que je ne code pas seulement pour fonctionner, mais pour <em>émouvoir</em>.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">HTML5 Canvas</span>
+        <span class="proj-tag">JavaScript ES6</span>
+        <span class="proj-tag">Particules</span>
+        <span class="proj-tag">CSS Animations</span>
+      </div>
+      <a href="https://miraclelohw.github.io/Constellation-/" target="_blank" class="proj-link" style="color:var(--terra-light)">
+        Voir le projet <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- GRID TITLE -->
+  <div class="proj-grid-title reveal">
+    <span>Toutes les réalisations</span>
+    <div class="proj-grid-line"></div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="proj-grid reveal" id="projects-grid">
+
+    <div class="proj-card reveal-card" data-cat="business">
+      <div class="proj-card-glow" style="--glow:#C9A227"></div>
+      <div class="proj-card-top">
+        <span class="proj-card-emoji">🪵</span>
+        <span class="proj-card-status">Live</span>
+      </div>
+      <div class="proj-card-body">
+        <div class="proj-card-type">Business · Premium · Teck</div>
+        <h4 class="proj-card-title">ATC-IB</h4>
+        <p class="proj-card-desc">Site vitrine premium pour fabricant de meubles en teck béninois depuis 2006. Galerie collections, formulaire de devis, countdown offre spéciale, design luxe sombre.</p>
+        <div class="proj-card-stack">
+          <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+        </div>
+      </div>
+      <a href="https://miracle-do.github.io/ATC-IB" target="_blank" class="proj-card-link">
+        Visiter le site <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
     </div>
 
-    <div class="project-card accent-gold tilt-card">
-      <div class="project-card-emoji">💻</div>
-      <div class="project-card-inner">
-        <div class="project-card-type">Plateforme · Apprentissage</div>
-        <div class="project-card-title">LearnDevWeb</div>
-        <a href="https://miracle-do.github.io/LearnDevWeb" target="_blank" class="project-card-link">
-          Visiter →
-        </a>
+    <div class="proj-card reveal-card" data-cat="business">
+      <div class="proj-card-glow" style="--glow:#00F5FF"></div>
+      <div class="proj-card-top">
+        <span class="proj-card-emoji">🏨</span>
+        <span class="proj-card-status">Live</span>
       </div>
+      <div class="proj-card-body">
+        <div class="proj-card-type">Hôtellerie · Luxe · Porto-Novo</div>
+        <h4 class="proj-card-title">Freedom Palace</h4>
+        <p class="proj-card-desc">Site hôtelier de luxe pour palace à Porto-Novo. Design dark élégant à l'âme africaine, galerie des chambres, gastronomie, système de réservation, storytelling immersif.</p>
+        <div class="proj-card-stack">
+          <span>HTML5</span><span>CSS3</span><span>JS</span>
+        </div>
+      </div>
+      <a href="https://miracle-do.github.io/Freedom-Palace" target="_blank" class="proj-card-link">
+        Visiter le site <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
     </div>
 
-    <div class="project-card accent-terra tilt-card">
-      <div class="project-card-emoji">💑</div>
-      <div class="project-card-inner">
-        <div class="project-card-type">Créatif · Expérience</div>
-        <div class="project-card-title">Jeu Intime</div>
-        <a href="https://miracle-do.github.io/Intime" target="_blank" class="project-card-link">
-          Visiter →
-        </a>
+    <div class="proj-card reveal-card" data-cat="saas">
+      <div class="proj-card-glow" style="--glow:#A78BFA"></div>
+      <div class="proj-card-top">
+        <span class="proj-card-emoji">🤖</span>
+        <span class="proj-card-status proj-card-status--wip">En cours</span>
       </div>
+      <div class="proj-card-body">
+        <div class="proj-card-type">SaaS · IA · Claude AI</div>
+        <h4 class="proj-card-title">CVconfess</h4>
+        <p class="proj-card-desc">Générateur de CV propulsé par Claude AI. 4 styles distincts (Corporate, Moderne, Créatif, Minimaliste), génération en langage naturel, export PDF instantané. Interface étape par étape.</p>
+        <div class="proj-card-stack">
+          <span>Claude AI</span><span>JS</span><span>PDF</span>
+        </div>
+      </div>
+      <a href="https://miracle-do.github.io/Cvconfess" target="_blank" class="proj-card-link">
+        Voir le projet <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
     </div>
 
-    <div class="project-card accent-violet tilt-card">
-      <div class="project-card-emoji">🏫</div>
-      <div class="project-card-inner">
-        <div class="project-card-type">Business · Éducation</div>
-        <div class="project-card-title">École Espérance 2000</div>
-        <a href="https://miracle-do.github.io/ESPERANCE2000/esperance2000.html" target="_blank" class="project-card-link">
-          Visiter →
-        </a>
+    <div class="proj-card reveal-card" data-cat="plateforme">
+      <div class="proj-card-glow" style="--glow:#FFD700"></div>
+      <div class="proj-card-top">
+        <span class="proj-card-emoji">🖧</span>
+        <span class="proj-card-status">Live</span>
       </div>
+      <div class="proj-card-body">
+        <div class="proj-card-type">Plateforme · ENEAM · Révision</div>
+        <h4 class="proj-card-title">ENEAM QCM</h4>
+        <p class="proj-card-desc">Plateforme de révision interactive pour étudiants ENEAM IG2. 4 modules de réseaux informatiques, 500+ questions, QCM interactifs, résumés structurés, score en temps réel.</p>
+        <div class="proj-card-stack">
+          <span>HTML5</span><span>CSS3</span><span>JS</span>
+        </div>
+      </div>
+      <a href="https://miracle-do.github.io/Plate-forme-" target="_blank" class="proj-card-link">
+        Visiter le site <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
     </div>
 
-    <div class="project-card accent-cyan tilt-card">
-      <div class="project-card-emoji">🛒</div>
-      <div class="project-card-inner">
-        <div class="project-card-type">Business · E-commerce</div>
-        <div class="project-card-title">Super Marché Le Ruisseau</div>
-        <a href="https://miracle-do.github.io/Le-Ruisseau" target="_blank" class="project-card-link">
-          Visiter →
-        </a>
+    <div class="proj-card reveal-card" data-cat="business">
+      <div class="proj-card-glow" style="--glow:#E05A20"></div>
+      <div class="proj-card-top">
+        <span class="proj-card-emoji">🥛</span>
+        <span class="proj-card-status">Live</span>
       </div>
+      <div class="proj-card-body">
+        <div class="proj-card-type">Artisanal · Food · Porto-Novo</div>
+        <h4 class="proj-card-title">Dégué Délice</h4>
+        <p class="proj-card-desc">Site vitrine pour boutique artisanale béninoise de saveurs locales. Design chaleureux, mise en valeur des produits, commande directe via WhatsApp, événements et storytelling.</p>
+        <div class="proj-card-stack">
+          <span>HTML5</span><span>CSS3</span><span>JS</span>
+        </div>
+      </div>
+      <a href="https://miracle-do.github.io/YaourtDelice" target="_blank" class="proj-card-link">
+        Visiter le site <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
     </div>
 
-    <div class="project-card accent-gold tilt-card">
-      <div class="project-card-emoji">🚀</div>
-      <div class="project-card-inner">
-        <div class="project-card-type">Plateforme · En cours</div>
-        <div class="project-card-title">DevFusion Platform</div>
-        <a href="https://miracle-do.github.io/Plate-forme-" target="_blank" class="project-card-link">
-          Découvrir →
-        </a>
+    <div class="proj-card reveal-card" data-cat="business">
+      <div class="proj-card-glow" style="--glow:#00F5FF"></div>
+      <div class="proj-card-top">
+        <span class="proj-card-emoji">👕</span>
+        <span class="proj-card-status">Live</span>
       </div>
+      <div class="proj-card-body">
+        <div class="proj-card-type">E-commerce · Mode · Streetwear</div>
+        <h4 class="proj-card-title">dönt lie.</h4>
+        <p class="proj-card-desc">Boutique e-commerce de mode minimaliste streetwear. Catalogue complet par catégorie (T-shirts, hoodies, souliers…), panier, paiement à la livraison, design épuré.</p>
+        <div class="proj-card-stack">
+          <span>HTML5</span><span>CSS3</span><span>JS</span>
+        </div>
+      </div>
+      <a href="https://miracle-do.github.io/OnlineSell" target="_blank" class="proj-card-link">
+        Visiter le site <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+
+    <div class="proj-card reveal-card" data-cat="creatif">
+      <div class="proj-card-glow" style="--glow:#E05A20"></div>
+      <div class="proj-card-top">
+        <span class="proj-card-emoji">💑</span>
+        <span class="proj-card-status">Live</span>
+      </div>
+      <div class="proj-card-body">
+        <div class="proj-card-type">Créatif · Jeu · Site Client</div>
+        <h4 class="proj-card-title">Intime</h4>
+        <p class="proj-card-desc">Site web personnel livré pour un client. Jeu interactif d'actions pour couples : cartes, défis, moments partagés. Expérience immersive, design romantique, animations CSS soignées.</p>
+        <div class="proj-card-stack">
+          <span>HTML5</span><span>CSS3</span><span>JS</span>
+        </div>
+      </div>
+      <a href="https://miracle-do.github.io/Intime" target="_blank" class="proj-card-link">
+        Visiter le site <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+
+    <div class="proj-card reveal-card" data-cat="plateforme">
+      <div class="proj-card-glow" style="--glow:#C9A227"></div>
+      <div class="proj-card-top">
+        <span class="proj-card-emoji">💻</span>
+        <span class="proj-card-status">Live</span>
+      </div>
+      <div class="proj-card-body">
+        <div class="proj-card-type">Plateforme · Apprentissage Web</div>
+        <h4 class="proj-card-title">LearnDevWeb</h4>
+        <p class="proj-card-desc">Plateforme d'apprentissage du développement web francophone. Cours structurés HTML/CSS/JS, exercices pratiques, progression guidée du débutant au développeur opérationnel.</p>
+        <div class="proj-card-stack">
+          <span>HTML5</span><span>CSS3</span><span>JS</span>
+        </div>
+      </div>
+      <a href="https://miracle-do.github.io/LearnDevWeb" target="_blank" class="proj-card-link">
+        Visiter le site <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+
+    <div class="proj-card reveal-card" data-cat="business">
+      <div class="proj-card-glow" style="--glow:#A78BFA"></div>
+      <div class="proj-card-top">
+        <span class="proj-card-emoji">🏫</span>
+        <span class="proj-card-status">Live</span>
+      </div>
+      <div class="proj-card-body">
+        <div class="proj-card-type">Éducation · Institution · Cotonou</div>
+        <h4 class="proj-card-title">Espérance 2000</h4>
+        <p class="proj-card-desc">Site vitrine officiel pour le Collège Espérance 2000 à Cotonou. Présentation institutionnelle, niveaux et filières, actualités scolaires, contacts et localisation. Design sobre et professionnel.</p>
+        <div class="proj-card-stack">
+          <span>HTML5</span><span>CSS3</span><span>JS</span>
+        </div>
+      </div>
+      <a href="https://miracle-do.github.io/ESPERANCE2000/esperance2000.html" target="_blank" class="proj-card-link">
+        Visiter le site <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+
+    <div class="proj-card reveal-card" data-cat="business">
+      <div class="proj-card-glow" style="--glow:#00F5FF"></div>
+      <div class="proj-card-top">
+        <span class="proj-card-emoji">🛒</span>
+        <span class="proj-card-status">Live</span>
+      </div>
+      <div class="proj-card-body">
+        <div class="proj-card-type">Commerce · Supermarché · Bénin</div>
+        <h4 class="proj-card-title">Le Ruisseau</h4>
+        <p class="proj-card-desc">Site vitrine pour supermarché béninois. Catalogue produits organisé par rayons, horaires d'ouverture, localisation, promotions en cours. Design moderne et accessible sur mobile.</p>
+        <div class="proj-card-stack">
+          <span>HTML5</span><span>CSS3</span><span>JS</span>
+        </div>
+      </div>
+      <a href="https://miracle-do.github.io/Le-Ruisseau" target="_blank" class="proj-card-link">
+        Visiter le site <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+
+    <div class="proj-card reveal-card" data-cat="plateforme">
+      <div class="proj-card-glow" style="--glow:#E05A20"></div>
+      <div class="proj-card-top">
+        <span class="proj-card-emoji">🔐</span>
+        <span class="proj-card-status">Live</span>
+      </div>
+      <div class="proj-card-body">
+        <div class="proj-card-type">Plateforme · Cybersécurité · FR</div>
+        <h4 class="proj-card-title">LearnHacking</h4>
+        <p class="proj-card-desc">Guide complet d'ethical hacking en français, de débutant à expert. Parcours structuré, modules progressifs, outils, méthodologies et bonnes pratiques en sécurité informatique.</p>
+        <div class="proj-card-stack">
+          <span>HTML5</span><span>CSS3</span><span>JS</span>
+        </div>
+      </div>
+      <a href="https://miracle-do.github.io/LearnHacking" target="_blank" class="proj-card-link">
+        Visiter le site <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
     </div>
 
   </div>
+
+  <!-- Count -->
+  <div class="reveal" style="text-align:center;margin-top:72px;">
+    <span style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.35em;color:var(--white-dim);text-transform:uppercase">
+      ✦ 14 projets réalisés &nbsp;·&nbsp; et la liste continue...
+    </span>
+  </div>
+
 </section>
 
 <!-- ============================================================ -->
@@ -1663,7 +2192,7 @@
       </a>
     </div>
     <div class="contact-footer reveal">
-      Conçu & développé par <span>LOHOUNME Miracle Melvyn</span> — Cotonou, Bénin 🇧🇯 · <span>© 2025</span>
+      Conçu & développé par <span>Miracle LOHOUNME</span> — Cotonou, Bénin 🇧🇯 · <span>© 2025</span>
     </div>
   </div>
 </section>
@@ -1788,7 +2317,7 @@ function animateHeroName() {
   const word1El = document.getElementById('word1');
   const word2El = document.getElementById('word2');
   const name1 = 'MIRACLE';
-  const name2 = 'MELVYN';
+  const name2 = 'LOHOUNME';
 
   word1El.innerHTML = name1.split('').map((c,i) =>
     `<span class="char" style="transition-delay:${i*60}ms;display:inline-block;opacity:0;transform:translateY(100%);transition:opacity 0.5s,transform 0.5s">${c}</span>`
@@ -1872,8 +2401,49 @@ document.querySelectorAll('.filter-tab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
     tab.classList.add('active');
+    const filter = tab.getAttribute('data-filter');
+    // Featured blocks
+    document.querySelectorAll('.proj-featured').forEach(card => {
+      const cat = card.getAttribute('data-cat') || 'all';
+      const show = filter === 'all' || cat === filter;
+      card.style.transition = 'opacity 0.4s, transform 0.4s';
+      card.style.opacity = show ? '1' : '0.12';
+      card.style.transform = show ? '' : 'scale(0.98)';
+      card.style.pointerEvents = show ? 'auto' : 'none';
+    });
+    // Grid cards — stagger
+    let delay = 0;
+    document.querySelectorAll('.proj-card').forEach(card => {
+      const cat = card.getAttribute('data-cat') || 'all';
+      const show = filter === 'all' || cat === filter;
+      card.style.transition = `opacity 0.4s ${delay}s, transform 0.4s ${delay}s`;
+      card.style.opacity = show ? '1' : '0.08';
+      card.style.transform = show ? 'translateY(0)' : 'translateY(10px) scale(0.97)';
+      card.style.pointerEvents = show ? 'auto' : 'none';
+      if (show) delay += 0.04;
+    });
   });
 });
+
+// ============================================================
+// PROJ-CARD SCROLL REVEAL WITH STAGGER
+// ============================================================
+(function() {
+  const cards = document.querySelectorAll('.proj-card');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const siblings = [...entry.target.parentElement.querySelectorAll('.proj-card')];
+        const idx = siblings.indexOf(entry.target);
+        setTimeout(() => {
+          entry.target.classList.add('is-visible');
+        }, (idx % 3) * 100);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  cards.forEach(c => io.observe(c));
+})();
 
 // ============================================================
 // PARALLAX HERO
